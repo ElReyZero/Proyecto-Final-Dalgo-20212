@@ -15,7 +15,7 @@ def reservaEconomica(anio:int,a:float,b:float,c:float,d:float)->int:
             i+=1
         return act
 
-def convolucionPondera(anio:int,a:float,b:float,c:float,d:float)->int:
+def convolucionPonderada(anio:int,a:float,b:float,c:float,d:float)->int:
     res=0
     for i in range(anio+1):
         res += reservaEconomica(i,a,b,c,d)*reservaEconomica(anio-i,a,b,c,d)
@@ -24,11 +24,10 @@ def convolucionPondera(anio:int,a:float,b:float,c:float,d:float)->int:
 if __name__ == "__main__":
     contador = 0
     for caso in sys.stdin:
-        ###contador += 1
         linea = caso.strip("\n").strip().split(" ")
         if (len(linea)==5):
             try:
-                print(convolucionPondera(int(linea[0]),float(linea[1]),float(linea[2]),float(linea[3]),float(linea[4])))
+                print(convolucionPonderada(int(linea[0]),float(linea[1]),float(linea[2]),float(linea[3]),float(linea[4])))
             except:
                 print(0)
         else:

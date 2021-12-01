@@ -1,3 +1,8 @@
+"""
+Autores:
+Juan Andrés Romero Colmenares - 202013449
+Luccas Rojas - 201923052
+"""
 import sys
 def reservaEconomica(anio:int,a:float,b:float,c:float,d:float)->int:
     if(anio==0):

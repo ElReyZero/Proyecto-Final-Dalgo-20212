@@ -7,6 +7,12 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Queue;
 
+/**
+ * Autores:
+ * Juan Andrés Romero Colmenares - 202013449
+ * Luccas Rojas - 201923052
+ */
+
 @SuppressWarnings("unchecked")
 public class GrafoBC {
     

@@ -53,8 +53,8 @@ public class GrafoBC {
                     }
                     line = br.readLine();
                 }
-                //TODO Realizar la diferencia de sumas
-                System.out.println(diferencias);
+                int respuesta = subConjuntoMinimoPD(diferencias);
+                System.out.println(respuesta);
             }         
         }
         catch (Exception e)
@@ -181,5 +181,55 @@ public class GrafoBC {
         resultado[0] = blancos;
         resultado[1] = negros;
         return resultado;
+    }
+
+    public static int subConjuntoMinimoPD(ArrayList<Integer> lista)
+    {
+        //TODO Mirar si la lista es 0
+        int total_sum = listSum(lista);
+        int n = lista.size();
+
+        boolean[][] matriz = new boolean[n+1][(Math.floorDiv(total_sum, 2)+1)];
+
+        for (int i = 0; i<matriz.length; i++)
+        {
+            matriz[i][0] = true;
+        }
+
+        for (int i = 1; i<matriz.length; i++)
+        {
+            for(int j = 1; j<matriz[0].length; j++)
+            {
+                if (lista.get(i-1) <= j)
+                {
+                    matriz[i][j] = (matriz[i-1][j-(lista.get(i-1))] || matriz[i-1][j]);
+                }
+                else
+                {
+                    matriz[i][j] = matriz[i-1][j];
+                }
+            }
+        }
+
+        int minimo = Integer.MAX_VALUE;
+        for (int i = matriz[0].length-1; i>-1 ; i--)
+        {
+            if (matriz[matriz[0].length-1][i])
+            {
+                minimo = Math.min(minimo, Math.abs(total_sum - (2*i)));
+                return minimo;
+            }
+        }
+        return -1;
+    }
+
+    public static int listSum(ArrayList<Integer> lista)
+    {  
+        int suma = 0;
+        for (int i :lista)
+        {
+            suma+= i;
+        }
+        return suma;
     }
 }

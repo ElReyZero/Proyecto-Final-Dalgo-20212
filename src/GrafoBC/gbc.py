@@ -58,4 +58,4 @@ def subconjuntoMinimoPD(lista:list)->int:
          minimo = min(minimo, abs(total_sum-(2*i)))
          return minimo
          
-print(subconjuntoMinimoPD(arr7))
+print(subconjuntoMinimoPD([0,1]))

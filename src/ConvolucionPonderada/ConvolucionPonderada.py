@@ -33,7 +33,9 @@ if __name__ == "__main__":
         if (len(linea)==5):
             try:
                 print(convolucionPonderada(int(linea[0]),float(linea[1]),float(linea[2]),float(linea[3]),float(linea[4])))
-            except:
+            except KeyboardInterrupt:
+                raise
+            except Exception:
                 print(0)
         else:
             print(0)

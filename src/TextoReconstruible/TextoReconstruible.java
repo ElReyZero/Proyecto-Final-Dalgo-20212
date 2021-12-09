@@ -114,5 +114,6 @@ public class TextoReconstruible
     {
         System.out.println(overlapInt("caaab", "aba"));
         System.out.println(overlapStr("caaab", "aba"));
+        System.out.println(overlapStr("aab","baa"));
     }
 }

@@ -213,11 +213,9 @@ public class GrafoBC {
         }
 
         int minimo = Integer.MAX_VALUE;
-        for (int i = matriz[0].length-1; i>-1 ; i--)
-        {
-            if (matriz[matriz[0].length-1][i])
-            {
-                minimo = Math.min(minimo, Math.abs(total_sum - (2*i)));
+        for (int j = total_sum / 2; j >= 0; j--) {
+            if (matriz[n][j] == true) {
+                minimo = total_sum - 2 * j;
                 return minimo;
             }
         }

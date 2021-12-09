@@ -57,5 +57,5 @@ def subconjuntoMinimoPD(lista:list)->int:
       if matriz[-1][i]:
          minimo = min(minimo, abs(total_sum-(2*i)))
          return minimo
-         
+        
 print(subconjuntoMinimoPD([0,1]))

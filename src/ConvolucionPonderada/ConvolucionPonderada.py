@@ -37,5 +37,3 @@ if __name__ == "__main__":
                 raise
             except Exception:
                 print(0)
-        else:
-            print(0)

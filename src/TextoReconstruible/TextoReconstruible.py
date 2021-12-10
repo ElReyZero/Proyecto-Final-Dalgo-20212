@@ -1,4 +1,4 @@
-import time
+import sys
 """
 Autores:
 Juan Andrés Romero Colmenares - 202013449
@@ -77,14 +77,14 @@ def isBlank(cadena:str)->bool:
         return False
 
 def main():
-    start_time = time.time()
-    #print(textoReconstruible(["RRRRRRRRRRRR", "RRRRRRRRRRRR", "RRRRRRRRRRRR", "RRRRRRRRRRRR", "RRRRRRRRRRRR", "RRRRRRRRRRRR"]))
-    #print(textoReconstruible(["nfid", "conf", "cial", "denc", "onfi", "enci"]))
-    #print(textoReconstruible(["aab","baa","aaa","bbb"]))
-    #print(textoReconstruible(["abb","bbc","bbb"]))
-    #print(textoReconstruible(["alex","loves","leetcode"]))
-    #print(textoReconstruible(["catg","ctaagt","gcta","ttca","atgcatc"]))
-    print(textoReconstruible(["efde","defab", "abcdef"]))
-    print("%s segundos" % (time.time()-start_time))
+    line = sys.stdin.readline().strip("\n").strip().split(" ")
+    while (line is not None and len(line) > 0) and line[0] != "0":
+        words = []
+        listLength = int(line[0])
+        line = sys.stdin.readline().strip("\n").strip().split(" ")
+        for _ in range(listLength):
+            words.append(line[0])
+            line = sys.stdin.readline().strip("\n").strip().split(" ")
+        print(textoReconstruible(words))
 if __name__ == '__main__':
     main()

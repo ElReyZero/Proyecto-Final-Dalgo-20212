@@ -10,9 +10,10 @@ def textoReconstruible(lista:list[str])->str:
     auxi=""
     auxj=""
     auxStr=""
-    for i in range(len(lista)):
-        aux.append(lista[i])
     cuenta = -1
+
+    aux.extend(lista)
+
     while len(aux) != 1:
         for i in range(0, len(aux)):
             for j in range(i+1, len(aux)):
@@ -24,7 +25,6 @@ def textoReconstruible(lista:list[str])->str:
                     auxi= aux[i]
                 elif numOverlap == cuenta and strOverlap not in aux2 and not isBlank(strOverlap):
                     aux2.append(strOverlap)
-
 
         if not isBlank(auxi):
             aux.remove(auxi)

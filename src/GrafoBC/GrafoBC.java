@@ -43,7 +43,14 @@ public class GrafoBC {
                     if(!g.listaAdyacencia[0].isEmpty())
                     {
                         ArrayList<Integer>[] res = isBipartite(g, g.listaAdyacencia[0].get(0));
-                        diferencias.add(Math.abs(res[0].size()-res[1].size()));
+                        if (res == null)
+                        {
+                            diferencias.add(0);
+                        }
+                        else
+                        {
+                            diferencias.add(Math.abs(res[0].size()-res[1].size()));
+                        }
                     }
                     else
                     {

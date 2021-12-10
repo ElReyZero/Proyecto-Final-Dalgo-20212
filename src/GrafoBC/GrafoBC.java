@@ -32,6 +32,7 @@ public class GrafoBC {
                 ArrayList<Integer> diferencias = new ArrayList<>();
                 int numGrafos = Integer.parseInt(line);
                 line = br.readLine();
+                boolean fallo = false;
                 for (int i =0; i< numGrafos; i++)
                 {
                     final String[] dataStr = line.split(" ");
@@ -45,7 +46,13 @@ public class GrafoBC {
                         ArrayList<Integer>[] res = isBipartite(g, g.listaAdyacencia[0].get(0));
                         if (res == null)
                         {
-                            diferencias.add(0);
+                            System.out.println("Error en los grafos de entrada");
+                            for (int j = i; j<numGrafos-1; j++)
+                            {
+                                line = br.readLine();
+                            }
+                            i = numGrafos;
+                            fallo = true;
                         }
                         else
                         {
@@ -57,6 +64,10 @@ public class GrafoBC {
                         diferencias.add(1);
                     }
                     line = br.readLine();
+                }
+                if (fallo == true)
+                {
+                    continue;
                 }
                 int respuesta = subConjuntoMinimoPD(diferencias);
                 System.out.println(respuesta);

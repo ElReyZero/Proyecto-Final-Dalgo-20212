@@ -201,7 +201,6 @@ public class GrafoBC {
 
     public static int subConjuntoMinimoPD(ArrayList<Integer> lista)
     {
-        //TODO Mirar si la lista es 0
         int total_sum = listSum(lista);
         int n = lista.size();
 
